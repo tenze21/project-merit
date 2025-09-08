@@ -1,0 +1,15 @@
+export const students=[
+    {id: 12230054, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+    {id: 12230045, name: "Tenzin Choda", address: "0x5Be35359710101eedb5F28caEa9b5198D40b5a10", stella: 0, tonitrus: 0},
+];
