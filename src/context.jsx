@@ -38,6 +38,7 @@ const AppProvider = ({ children }) => {
     setPublicClient(publicClient);
   },[]);
 
+  /*Connects the users wallet to the dapp*/
   async function connectWallet() {
     if (!window.ethereum) {
       alert("No wallet detected!");
@@ -75,6 +76,7 @@ const AppProvider = ({ children }) => {
     setTonitrusContract(tonitrus);
   }, [walletClient]);
 
+  /*Get the token balances of the connected account*/
   useEffect(() => {
     if (!walletClient || !address) return;
     async function getBalances() {
@@ -96,6 +98,7 @@ const AppProvider = ({ children }) => {
     getBalances();
   }, [walletClient, address]);
 
+  /*called when a token is mint, burnt or transfered to fetch the users balances again*/
   const refreshBalances = async () => {
     if (!walletClient || !address) return;
     const sBalance = await walletClient.readContract({

@@ -32,6 +32,7 @@ function TransferToken(){
         if(!selectedStudent){
             setError("Please enter a valid student ID");
         }
+        /*call the transfer function of the Stella contract*/
         const {request}= await walletClient.simulateContract({
             address: STELLA_CONTRACT_ADDRESS,
             abi: stellaAbi.abi,
@@ -39,8 +40,9 @@ function TransferToken(){
             args: [selectedStudent, parseEther(stellaAmount)]
         });
         const hash= await walletClient.writeContract(request);
-        await walletClient.waitForTransactionReceipt({ hash });
+        await walletClient.waitForTransactionReceipt({ hash });/*wait for the transaction to get mined*/
         await refreshBalances();
+        /*reset form */
         setStellaAmount("");
         setSStudentId("");
         alert(`Transaction ${hash} successful`);
@@ -57,6 +59,7 @@ function TransferToken(){
         if(!selectedStudent){
             setError1("Please enter a valid student ID");
         }
+        /*call the transfer function of the tonitrus contract*/
         const {request}= await walletClient.simulateContract({
             address: TONITRUS_CONTRACT_ADDRESS,
             abi: tonitrusAbi.abi,
@@ -64,8 +67,9 @@ function TransferToken(){
             args: [selectedStudent, parseEther(tonitrusAmount)]
         });
         const hash= await walletClient.writeContract(request);
-        await walletClient.waitForTransactionReceipt({ hash });
+        await walletClient.waitForTransactionReceipt({ hash });/*wait for the transaction to get mined */
         await refreshBalances();
+        /*reset form*/
         setTonitrusAmount("");
         settTStudentId("");
         alert(`Transaction ${hash} successful`);
@@ -73,6 +77,7 @@ function TransferToken(){
 
     async function mintStella(e){
         e.preventDefault();
+        /*call the mint function of the Stella contract */
         const {request}= await walletClient.simulateContract({
             address: STELLA_CONTRACT_ADDRESS,
             abi: stellaAbi.abi,
@@ -80,13 +85,15 @@ function TransferToken(){
             args: [parseEther(stellaMintAmount)]
         });
         const hash= await walletClient.writeContract(request);
-        await walletClient.waitForTransactionReceipt({ hash });
+        await walletClient.waitForTransactionReceipt({ hash });/*wait for the transaction to get mined */
         await refreshBalances();
+        /*reset form*/
         setStellaMintAmount("");
         alert(`${stellaMintAmount} Stella has been minted.(txn: ${hash})`);
     }
     async function burnStella(e){
         e.preventDefault();
+        /*call the burn function of the Stella contract */
         const {request}= await walletClient.simulateContract({
             address: STELLA_CONTRACT_ADDRESS,
             abi: stellaAbi.abi,
@@ -94,13 +101,15 @@ function TransferToken(){
             args: [parseEther(stellaBurnAmount)]
         });
         const hash= await walletClient.writeContract(request);
-        await walletClient.waitForTransactionReceipt({ hash });
+        await walletClient.waitForTransactionReceipt({ hash });/*wait for the transaction to get mined */
         await refreshBalances();
+        /*reset form*/
         setStellaBurnAmount("");
         alert(`${stellaBurnAmount} Stella has been burnt.(txn: ${hash})`);
     }
     async function mintTonitrus(e){
         e.preventDefault();
+        /*call the mint function of the Tonitrus contract */
         const {request}= await walletClient.simulateContract({
             address: TONITRUS_CONTRACT_ADDRESS,
             abi: tonitrusAbi.abi,
@@ -108,13 +117,15 @@ function TransferToken(){
             args: [parseEther(tonitrusMintAmount)]
         });
         const hash= await walletClient.writeContract(request);
-        await walletClient.waitForTransactionReceipt({ hash });
+        await walletClient.waitForTransactionReceipt({ hash });/*wait for the transaction to get mined */
         await refreshBalances();
+        /*reset form*/
         setTonitrusMintAmount("");
         alert(`${tonitrusMintAmount} Tonitrus has been minted.(txn: ${hash})`);
     }
     async function burnTonitrus(e){
         e.preventDefault();
+        /*call the burn function of the Tonitrus contract */
         const {request}= await walletClient.simulateContract({
             address: TONITRUS_CONTRACT_ADDRESS,
             abi: tonitrusAbi.abi,
@@ -122,8 +133,9 @@ function TransferToken(){
             args: [parseEther(tonitrusBurnAmount)]
         });
         const hash= await walletClient.writeContract(request);
-        await walletClient.waitForTransactionReceipt({ hash });
+        await walletClient.waitForTransactionReceipt({ hash });/*wait for the transaction to get mined */
         await refreshBalances();
+        /*reset form*/
         setTonitrusBurnAmount("");
         alert(`${tonitrusBurnAmount} Tonitrus has been minted.(txn: ${hash})`);
     }
