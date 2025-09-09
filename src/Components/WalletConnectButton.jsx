@@ -5,7 +5,7 @@ function WalletConnectButton(){
     
     return(
         <div className="wallet-connect">
-            {address? (<button disabled>{address}</button>) : (<button onClick={()=>connectWallet()}>Connect Wallet</button>)}
+            {address? (<p className="wallet-address">{address}</p>) : (<button onClick={()=>connectWallet()}>Connect Wallet</button>)}
         </div>
     )
 }
