@@ -123,7 +123,7 @@ button{
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
-    gap: 1.5rem;
+    gap: 1rem;
     form{
       position: relative;
       display: flex;
@@ -149,6 +149,11 @@ button{
         border-radius: 0.5rem;
         height: 45px;
         padding-left: 1rem;
+      }
+    }
+    &:nth-child(2){
+      form{
+        padding: 1rem;
       }
     }
   }
