@@ -25,6 +25,7 @@ const AppProvider = ({ children }) => {
   const [tonitrusContract, setTonitrusContract] = useState(null);
   const [stellaBalance, setStellaBalance] = useState(0);
   const [tonitrusBalance, setTonitrusBalance] = useState(0);
+  const [activeNav, setActiveNav]= useState("ranking");
 
   useEffect(() => {
     if (!window.ethereum) {
@@ -128,7 +129,9 @@ const AppProvider = ({ children }) => {
         stellaBalance,
         tonitrusBalance,
         refreshBalances,
-        publicClient
+        publicClient,
+        activeNav,
+        setActiveNav
       }}
     >
       {children}

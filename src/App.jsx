@@ -1,29 +1,22 @@
-import WalletConnectButton from "./Components/WalletConnectButton";
-import TransferToken from "./Components/TransferToken";
-import StudentRanking from "./Components/StudentRanking";
-import { useGlobalContext } from "./context";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TransferTokenPage from "./pages/TransferTokenPage";
+import MintBurnPage from "./pages/MintBurnPage";
+import RankingPage from "./pages/RankingPage";
+import Navbar from "./Components/Navbar";
 import "./App.css";
 
 function App() {
-  const { stellaBalance, tonitrusBalance, walletClient } = useGlobalContext();
   return (
-    <div>
-      <WalletConnectButton />
-      {walletClient && (
-        <article className="balance-display">
-          <div>
-            <p>Stella Earned: {stellaBalance}</p>
-            <img src="/star.svg" alt="" />
-          </div>
-          <div>
-            <p>Tonitrus Earned: {tonitrusBalance} </p>
-            <img src="/thunder_bolt.svg" alt="" />
-          </div>
-        </article>
-      )}
-      <TransferToken />
-      <StudentRanking/>
-    </div>
+    <>
+      <BrowserRouter>
+      <Navbar/>
+        <Routes>
+          <Route path="/" index="true" element={<RankingPage/>}/>
+          <Route path="/mint-burn" element={<MintBurnPage/>}/>
+          <Route path="/award" element={<TransferTokenPage/>}/>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

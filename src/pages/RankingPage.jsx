@@ -6,11 +6,15 @@ import {
   STELLA_CONTRACT_ADDRESS,
   TONITRUS_CONTRACT_ADDRESS,
 } from "../constants.js";
+import WalletConnectButton from "../Components/WalletConnectButton";
 import stellaAbi from "../contracts/stellaAbi.json";
 import tonitrusAbi from "../contracts/tonitrusAbi.json";
-function StudentRanking() {
-  const { publicClient } = useGlobalContext();
+function RankingPage() {
+  const { publicClient, walletClient, setActiveNav, stellaBalance, tonitrusBalance } = useGlobalContext();
   const [students, setStudents] = useState(studentsData);
+  useEffect(() => {
+    setActiveNav("ranking");
+  },[]);
 
   useEffect(() => {
     if (!publicClient) return;
@@ -48,7 +52,19 @@ function StudentRanking() {
 
   return (
     <>
-    <h1 style={{textAlign: "center", marginTop: "2rem"}}>Students Ranking</h1>
+      <WalletConnectButton />
+      {walletClient && (
+        <article className="balance-display">
+          <div>
+            <p>Stella Earned: {stellaBalance}</p>
+            <img src="/star.svg" alt="" />
+          </div>
+          <div>
+            <p>Tonitrus Earned: {tonitrusBalance} </p>
+            <img src="/thunder_bolt.svg" alt="" />
+          </div>
+        </article>
+      )}
       <table>
         <thead>
           <tr>
@@ -57,7 +73,6 @@ function StudentRanking() {
             <th>Name</th>
             <th>Stella</th>
             <th>Tonitrus</th>
-            <th>Effective Stella</th>
           </tr>
         </thead>
         <tbody>
@@ -68,7 +83,6 @@ function StudentRanking() {
               <td>{std.name}</td>
               <td>{std.stella}</td>
               <td>{std.tonitrus}</td>
-              <td>{std.effectiveStella}</td>
             </tr>
           ))}
         </tbody>
@@ -77,4 +91,4 @@ function StudentRanking() {
   );
 }
 
-export default StudentRanking;
+export default RankingPage;
