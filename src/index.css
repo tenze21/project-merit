@@ -118,7 +118,7 @@ button {
 }
 
 .token-transfer {
-  .award-form{
+  .award-form {
     display: grid;
     grid-template-columns: 500px 500px;
     place-content: center;
@@ -203,7 +203,7 @@ table {
   margin-top: 2rem;
   th,
   td {
-    border-bottom: 2px solid #000;
+    border-bottom: 3px solid #9a9fa4;
     padding: 1.5rem 3rem;
     align-items: center;
     text-align: center;
@@ -229,21 +229,21 @@ table {
   }
 }
 
-nav{
-  ul{
+nav {
+  ul {
     list-style: none;
     display: flex;
     justify-content: center;
     gap: 3rem;
-    a{
+    a {
       font-size: 1.3rem;
       text-decoration: none;
       font-weight: 500;
-      color: rgb(179, 190, 200);
+      color: #b3bec8;
       transition: all 300ms ease-in-out;
       position: relative;
-      &::after{
-        content: '';
+      &::after {
+        content: "";
         height: 2px;
         width: 0;
         background-color: var(--primary);
@@ -252,17 +252,17 @@ nav{
         top: 1.7rem;
         transition: all 300ms ease-in-out;
       }
-      &:hover{
-        color: var(--primary);  
+      &:hover {
+        color: var(--primary);
         font-size: 1.4rem;
       }
-      &:hover::after{
+      &:hover::after {
         width: 100%;
         top: 1.8rem;
       }
     }
-    .active{
-      color: var(--primary);  
+    .active {
+      color: var(--primary);
       font-size: 1.4rem;
     }
   }
