@@ -17,6 +17,7 @@ function MintBurnPage() {
   const [stellaBurnAmount, setStellaBurnAmount] = useState("");
   const [tonitrusMintAmount, setTonitrusMintAmount] = useState("");
   const [tonitrusBurnAmount, setTonitrusBurnAmount] = useState("");
+  const [isLoading, setIsLoading]= useState(false);
 
   useEffect(()=>{
     setActiveNav("mint-burn");
@@ -32,9 +33,11 @@ function MintBurnPage() {
       args: [parseEther(stellaMintAmount)],
     });
     const hash = await walletClient.writeContract(request);
+    setIsLoading(true);
     await walletClient.waitForTransactionReceipt({
       hash,
     }); /*wait for the transaction to get mined */
+    setIsLoading(false);
     await refreshBalances();
     /*reset form*/
     setStellaMintAmount("");
@@ -50,9 +53,11 @@ function MintBurnPage() {
       args: [parseEther(stellaBurnAmount)],
     });
     const hash = await walletClient.writeContract(request);
+    setIsLoading(true);
     await walletClient.waitForTransactionReceipt({
       hash,
     }); /*wait for the transaction to get mined */
+    setIsLoading(false);
     await refreshBalances();
     /*reset form*/
     setStellaBurnAmount("");
@@ -69,9 +74,11 @@ function MintBurnPage() {
       args: [parseEther(tonitrusMintAmount)],
     });
     const hash = await walletClient.writeContract(request);
+    setIsLoading(true);
     await walletClient.waitForTransactionReceipt({
       hash,
     }); /*wait for the transaction to get mined */
+    setIsLoading(false);
     await refreshBalances();
     /*reset form*/
     setTonitrusMintAmount("");
@@ -88,9 +95,11 @@ function MintBurnPage() {
       args: [parseEther(tonitrusBurnAmount)],
     });
     const hash = await walletClient.writeContract(request);
+    setIsLoading(true);
     await walletClient.waitForTransactionReceipt({
       hash,
     }); /*wait for the transaction to get mined */
+    setIsLoading(false);
     await refreshBalances();
     /*reset form*/
     setTonitrusBurnAmount("");
@@ -116,7 +125,7 @@ function MintBurnPage() {
             />
             <button
             type="submit"
-            disabled={!address || !stellaMintAmount || address != ADMIN_ADDRESS}
+            disabled={!address || !stellaMintAmount || address != ADMIN_ADDRESS || isLoading}
             >
             Mint
             </button>
@@ -136,7 +145,7 @@ function MintBurnPage() {
             />
             <button
             type="submit"
-            disabled={!address || !stellaBurnAmount || address != ADMIN_ADDRESS}
+            disabled={!address || !stellaBurnAmount || address != ADMIN_ADDRESS || isLoading}
             >
             Burn
             </button>
@@ -156,7 +165,7 @@ function MintBurnPage() {
             />
             <button
             type="submit"
-            disabled={!address || !tonitrusMintAmount || address != ADMIN_ADDRESS}
+            disabled={!address || !tonitrusMintAmount || address != ADMIN_ADDRESS || isLoading}
             >
             Mint
             </button>
@@ -176,7 +185,7 @@ function MintBurnPage() {
             />
             <button
             type="submit"
-            disabled={!address || !tonitrusBurnAmount || address != ADMIN_ADDRESS}
+            disabled={!address || !tonitrusBurnAmount || address != ADMIN_ADDRESS || isLoading}
             >
             Burn
             </button>

@@ -78,9 +78,11 @@ function TransferTokenPage() {
       args: [selectedStudent, parseEther(tonitrusAmount)],
     });
     const hash = await walletClient.writeContract(request);
+    setIsLoading(true);
     await walletClient.waitForTransactionReceipt({
       hash,
     }); /*wait for the transaction to get mined */
+    setIsLoading(false);
     await refreshBalances();
     /*reset form*/
     setTonitrusAmount("");
