@@ -12,7 +12,7 @@ import WalletConnectButton from "../Components/WalletConnectButton";
 import { useEffect } from "react";
 
 function MintBurnPage() {
-  const { address, walletClient, setActiveNav } = useGlobalContext();
+  const { address, walletClient, setActiveNav, refreshBalances } = useGlobalContext();
   const [stellaMintAmount, setStellaMintAmount] = useState("");
   const [stellaBurnAmount, setStellaBurnAmount] = useState("");
   const [tonitrusMintAmount, setTonitrusMintAmount] = useState("");
